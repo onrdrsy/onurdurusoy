@@ -1,23 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onur Durusoy</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onur Durusoy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- <img src="https://media.licdn.com/dms/image/v2/D4D03AQHEP1mLpDITaw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719036519965?e=1730332800&v=beta&t=24qbFIskX2KytOi5Ker7-a2bNnYg3nsmoCmysEcJ65o" alt="Onur Durusoy's photo" class="profile-pic"> -->
-        <h1>Onur Durusoy</h1>
-        <div class="social-links">
-           <!-- <a href="https://instagram.com/onrdrsy" target="_blank">Instagram</a>
-            <a href="https://twitter.com" target="_blank">Twitter</a> -->
-            <a href="https://linkedin.com/in/onurdurusoy" target="_blank">LinkedIn</a>
-            <a href="https://open.spotify.com/user/onrdrsy" target="_blank">Spotify</a>
-            <a href="https://github.com/onrdrsy" target="_blank">GitHub</a>
-            <a href="https://last.fm/tr/user/onrdrsy" target="_blank">Last.fm</a>
-        </div>
+  <!-- Tema Değiştirme Butonu -->
+  <div class="theme-switcher">
+    <input type="checkbox" id="theme-toggle" class="theme-toggle">
+    <label for="theme-toggle" class="theme-label">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+      <span class="theme-ball"></span>
+    </label>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="container">
+    <!-- Ad Soyad -->
+    <h1>Onur Durusoy</h1>
+
+    <!-- Sosyal Medya Bağlantıları -->
+    <div class="social-links">
+      <a href="https://github.com/onrdrsy" target="_blank" class="social-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/onurdurusoy" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/onurdurusoy" target="_blank" class="social-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" id="email-link" class="social-link">
+        <i class="fas fa-envelope"></i>
+      </a>
     </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // E-posta adresini dinamik olarak oluştur
+    const email = "onur" + "@" + "durusoy.tr";
+    document.getElementById("email-link").href = "mailto:" + email;
+
+    // Tema değiştirme işlevi
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Tema değiştirme
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Sayfa yüklendiğinde temayı yükle
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.checked = true;
+      } else {
+        body.classList.add('light-mode');
+        themeToggle.checked = false;
+      }
+    }
+
+    // Sayfa yüklendiğinde temayı yükle
+    loadTheme();
+  </script>
 </body>
 </html>
