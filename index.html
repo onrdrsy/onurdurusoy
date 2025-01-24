@@ -10,13 +10,16 @@
 </head>
 <body>
   <!-- Tema Değiştirme Butonu -->
-  <div class="theme-switcher">
-    <input type="checkbox" id="theme-toggle" class="theme-toggle">
-    <label for="theme-toggle" class="theme-label">
-      <i class="fas fa-sun"></i>
-      <i class="fas fa-moon"></i>
-      <span class="theme-ball"></span>
-    </label>
+  <div class="theme-switcher" id="theme-switcher">
+    <button id="theme-light" class="theme-button">
+      <i class="fas fa-sun"></i> Light
+    </button>
+    <button id="theme-system" class="theme-button">
+      <i class="fas fa-adjust"></i> Sistem
+    </button>
+    <button id="theme-dark" class="theme-button">
+      <i class="fas fa-moon"></i> Dark
+    </button>
   </div>
 
   <!-- Hero Section -->
@@ -28,15 +31,27 @@
     <div class="social-links">
       <a href="https://github.com/onrdrsy" target="_blank" class="social-link">
         <i class="fab fa-github"></i>
+        <span class="tooltip">GitHub</span>
       </a>
       <a href="https://linkedin.com/in/onurdurusoy" target="_blank" class="social-link">
         <i class="fab fa-linkedin"></i>
+        <span class="tooltip">LinkedIn</span>
       </a>
-      <a href="https://twitter.com/onurdurusoy" target="_blank" class="social-link">
+      <!-- <a href="https://twitter.com/" target="_blank" class="social-link">
         <i class="fab fa-twitter"></i>
+        <span class="tooltip">Twitter</span>
+      </a> -->
+      <a href="https://www.last.fm/user/onrdrsy" target="_blank" class="social-link">
+        <i class="fab fa-lastfm"></i>
+        <span class="tooltip">Last.fm</span>
+      </a>
+      <a href="https://open.spotify.com/user/onrdrsy" target="_blank" class="social-link">
+        <i class="fab fa-spotify"></i>
+        <span class="tooltip">Spotify</span>
       </a>
       <a href="#" id="email-link" class="social-link">
         <i class="fas fa-envelope"></i>
+        <span class="tooltip">E-posta</span>
       </a>
     </div>
   </div>
@@ -47,32 +62,91 @@
     const email = "onur" + "@" + "durusoy.tr";
     document.getElementById("email-link").href = "mailto:" + email;
 
-    // Tema değiştirme işlevi
-    const themeToggle = document.getElementById('theme-toggle');
+    // Tema değiştirme butonlarını seç
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeLight = document.getElementById('theme-light');
+    const themeSystem = document.getElementById('theme-system');
+    const themeDark = document.getElementById('theme-dark');
     const body = document.body;
 
-    // Tema değiştirme
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        body.classList.remove('light-mode');
+ 
+ 
+    // Butonlu tema seçimini devre dışı bırakır.
+    
+    function autoDetectTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
       } else {
-        body.classList.remove('dark-mode');
         body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
       }
+      // Butonları gizle
+      themeSwitcher.style.display = 'none';
+    }
+
+    // Sayfa yüklendiğinde otomatik tema seçimi
+    autoDetectTheme();
+    
+
+    // Butonlu tema seçimi (varsayılan)
+    themeLight.addEventListener('click', () => {
+      body.classList.remove('dark-mode', 'system-mode');
+      body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+      updateActiveButton('light');
     });
+
+    themeSystem.addEventListener('click', () => {
+      body.classList.remove('light-mode', 'dark-mode');
+      body.classList.add('system-mode');
+      localStorage.setItem('theme', 'system');
+      updateActiveButton('system');
+      applySystemTheme();
+    });
+
+    themeDark.addEventListener('click', () => {
+      body.classList.remove('light-mode', 'system-mode');
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+      updateActiveButton('dark');
+    });
+
+    // Sistem temasını uygula
+    function applySystemTheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.add('light-mode');
+      }
+    }
+
+    // Aktif butonu güncelle
+    function updateActiveButton(theme) {
+      themeLight.classList.remove('active');
+      themeSystem.classList.remove('active');
+      themeDark.classList.remove('active');
+
+      if (theme === 'light') {
+        themeLight.classList.add('active');
+      } else if (theme === 'system') {
+        themeSystem.classList.add('active');
+      } else if (theme === 'dark') {
+        themeDark.classList.add('active');
+      }
+    }
 
     // Sayfa yüklendiğinde temayı yükle
     function loadTheme() {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggle.checked = true;
-      } else {
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      if (savedTheme === 'light') {
         body.classList.add('light-mode');
-        themeToggle.checked = false;
+        updateActiveButton('light');
+      } else if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        updateActiveButton('dark');
+      } else {
+        body.classList.add('system-mode');
+        updateActiveButton('system');
+        applySystemTheme();
       }
     }
 

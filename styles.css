@@ -23,6 +23,19 @@ body.dark-mode {
   color: #B0BEC5;
 }
 
+/* Sistem Teması */
+body.system-mode {
+  background: #ffffff;
+  color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.system-mode {
+    background: #121212;
+    color: #B0BEC5;
+  }
+}
+
 /* Container */
 .container {
   max-width: 800px;
@@ -49,6 +62,10 @@ h1 {
   text-decoration: none;
   font-size: 1.5rem;
   transition: color 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .social-link i {
@@ -56,7 +73,11 @@ h1 {
 }
 
 .social-link:hover {
-  color: #007BFF;
+  color: #B0BEC5; /* Light mode için hover rengi */
+}
+
+body.dark-mode .social-link:hover {
+  color: #ffffff; /* Dark mode için hover rengi */
 }
 
 /* Tema Değiştirme Butonu */
@@ -64,64 +85,62 @@ h1 {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-.theme-toggle {
-  display: none;
-}
-
-.theme-label {
+.theme-button {
+  background: none;
+  border: 1px solid #B0BEC5;
+  color: #B0BEC5;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 60px;
-  height: 30px;
+  gap: 5px;
+}
+
+.theme-button:hover {
   background: #B0BEC5;
-  border-radius: 50px;
-  padding: 5px;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-.theme-label i {
-  font-size: 1rem;
   color: #121212;
-  transition: opacity 0.3s ease;
 }
 
-.theme-label .fa-sun {
-  opacity: 1;
+.theme-button.active {
+  background: #B0BEC5;
+  color: #121212;
 }
 
-.theme-label .fa-moon {
-  opacity: 0;
-}
-
-.theme-ball {
-  width: 22px;
-  height: 22px;
-  background: #ffffff;
-  border-radius: 50%;
+/* Tooltip Stili */
+.social-link .tooltip {
+  visibility: hidden;
+  background-color: #121212; /* Light mode için varsayılan renk */
+  color: #ffffff; /* Light mode için yazı rengi */
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
   position: absolute;
-  left: 5px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-/* Dark Mode için Tema Butonu Stili */
-body.dark-mode .theme-label {
-  background: #007BFF;
-}
-
-body.dark-mode .theme-label .fa-sun {
+  z-index: 1;
+  bottom: -30px; /* Simgenin altında görünecek */
   opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
-body.dark-mode .theme-label .fa-moon {
+.social-link:hover .tooltip {
+  visibility: visible;
   opacity: 1;
 }
 
-body.dark-mode .theme-ball {
-  transform: translateX(30px);
-  background: #121212;
+/* Light Mode için Tooltip */
+body.light-mode .social-link .tooltip {
+  background-color: #121212; /* Koyu gri */
+  color: #ffffff; /* Beyaz */
+}
+
+/* Dark Mode için Tooltip */
+body.dark-mode .social-link .tooltip {
+  background-color: #B0BEC5; /* Açık gri */
+  color: #121212; /* Koyu gri */
 }
