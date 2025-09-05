@@ -44,7 +44,7 @@ body.system-mode {
 
 /* Ad Soyad Stili */
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   margin-bottom: 40px;
   font-weight: normal;
   letter-spacing: 2px;
@@ -60,7 +60,7 @@ h1 {
 .social-link {
   color: inherit;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   transition: color 0.3s ease;
   position: relative;
   display: flex;
@@ -143,4 +143,5 @@ body.light-mode .social-link .tooltip {
 body.dark-mode .social-link .tooltip {
   background-color: #B0BEC5; /* Açık gri */
   color: #121212; /* Koyu gri */
+
 }
