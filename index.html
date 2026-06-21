@@ -114,7 +114,8 @@
                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
                     <span class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">Twitter</span>
                     <span class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
-                </a>  -->
+                </a> 
+                 -->
 
                 <a href="https://instagram.com/onrdrsy" target="_blank" rel="noopener noreferrer" 
                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
@@ -122,10 +123,10 @@
                     <span class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
                 </a>
 
-                <a href="mailto:onur@durusoy.tr" 
+                <a href="#" id="email-link" data-user="onur" data-domain="durusoy.tr"
                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
                     <span class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">E-posta</span>
-                    <span class="text-xs font-sans tracking-wide text-ink-light group-hover:text-ink transition-colors">onur@durusoy.tr</span>
+                    <span id="email-text" class="text-xs font-sans tracking-wide text-ink-light group-hover:text-ink transition-colors"></span>
                 </a>
 
             </nav>
@@ -151,11 +152,11 @@
                     
                     <!-- Platform Linkleri -->
                     <div class="flex border-t border-paper-dark/50">
-                        <a href="https://open.spotify.com/user/onrdrsy" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#1DB954] hover:bg-paper-dark/20 transition-all duration-300 rounded-bl-xl">
+                        <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#1DB954] hover:bg-paper-dark/20 transition-all duration-300 rounded-bl-xl">
                             SPOTIFY
                         </a>
                         <div class="w-px bg-paper-dark/50"></div>
-                        <a href="https://www.last.fm/user/onrdrsy" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#D51007] hover:bg-paper-dark/20 transition-all duration-300 rounded-br-xl">
+                        <a href="https://www.last.fm/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#D51007] hover:bg-paper-dark/20 transition-all duration-300 rounded-br-xl">
                             LAST.FM
                         </a>
                     </div>
@@ -200,6 +201,25 @@
             }
             updateIcons();
         });
+
+        // Bot korumalı e-posta adresi oluşturma
+        const emailLink = document.getElementById('email-link');
+        const emailText = document.getElementById('email-text');
+        
+        if (emailLink && emailText) {
+            const user = emailLink.getAttribute('data-user');
+            const domain = emailLink.getAttribute('data-domain');
+            
+            // E-posta adresini JavaScript ile oluşturup metin olarak yazdırıyoruz
+            const emailAddress = user + '@' + domain;
+            emailText.textContent = emailAddress;
+            
+            // Linke tıklama olayı ekleyerek mailto'yu dinamik olarak atıyoruz
+            emailLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'mailto:' + emailAddress;
+            });
+        }
     </script>
 
 </body>
