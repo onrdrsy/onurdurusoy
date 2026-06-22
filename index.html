@@ -161,11 +161,10 @@
                             style="animation-play-state: paused;">
                             <div class="absolute inset-1 rounded-full border border-record"></div>
                             <div class="absolute inset-2 rounded-full border border-record"></div>
-                            <div
-                                class="w-3.5 h-3.5 bg-ink/90 rounded-full flex items-center justify-center shadow-sm overflow-hidden z-10">
-                                <img id="music-cover" class="hidden w-full h-full object-cover" src="" alt="Album Art">
-                                <div id="music-record-hole" class="w-1.5 h-1.5 bg-paper rounded-full absolute"></div>
-                            </div>
+                            <!-- Albüm Kapağı (Mevcutsa plağın tamamını kaplar) -->
+                            <img id="music-cover" class="hidden absolute inset-0 w-full h-full object-cover rounded-full z-10" src="" alt="Album Art">
+                            <!-- Plak Merkez Deliği (Her zaman en üstte kalır) -->
+                            <div id="music-record-hole" class="w-1.5 h-1.5 bg-paper rounded-full absolute z-20 shadow-sm"></div>
                         </div>
 
                         <a id="music-link" href="https://www.last.fm/" target="_blank" rel="noopener noreferrer"
