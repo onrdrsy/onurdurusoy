@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onur Durusoy | durusoy.tr</title>
-    
+
     <!-- Google Fonts: Lora (Serif) & Inter (Sans-serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+
     <!-- Theme Variables -->
     <style>
         :root {
             /* Tailwind opacity desteği için RGB formatında tanımlandı */
-            --color-paper: 249 249 246;       /* #F9F9F6 */
-            --color-paper-dark: 234 234 230;  /* #EAEAE6 */
-            --color-ink: 26 26 26;            /* #1A1A1A */
-            --color-ink-light: 92 92 89;      /* #5C5C59 */
+            --color-paper: 249 249 246;
+            /* #F9F9F6 */
+            --color-paper-dark: 234 234 230;
+            /* #EAEAE6 */
+            --color-ink: 26 26 26;
+            /* #1A1A1A */
+            --color-ink-light: 92 92 89;
+            /* #5C5C59 */
             --color-card-bg: rgba(255, 255, 255, 0.4);
             --color-record-line: rgba(26, 26, 26, 0.05);
         }
+
         html.dark {
-            --color-paper: 17 17 17;          /* #111111 */
-            --color-paper-dark: 34 34 34;     /* #222222 */
-            --color-ink: 234 234 230;         /* #EAEAE6 */
-            --color-ink-light: 136 136 136;   /* #888888 */
+            --color-paper: 17 17 17;
+            /* #111111 */
+            --color-paper-dark: 34 34 34;
+            /* #222222 */
+            --color-ink: 234 234 230;
+            /* #EAEAE6 */
+            --color-ink-light: 136 136 136;
+            /* #888888 */
             --color-card-bg: rgba(255, 255, 255, 0.03);
             --color-record-line: rgba(255, 255, 255, 0.08);
         }
@@ -72,27 +84,28 @@
 <body class="bg-paper text-ink font-sans min-h-screen flex flex-col selection:bg-ink selection:text-paper antialiased">
 
     <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="absolute top-6 right-6 sm:top-8 sm:right-8 p-2 rounded-full hover:bg-paper-dark/50 transition-colors duration-300 text-ink-light hover:text-ink" aria-label="Toggle Theme">
+    <button id="theme-toggle"
+        class="absolute top-6 right-6 sm:top-8 sm:right-8 p-2 rounded-full hover:bg-paper-dark/50 transition-colors duration-300 text-ink-light hover:text-ink"
+        aria-label="Toggle Theme">
         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
     </button>
 
     <main class="flex-grow flex flex-col items-center py-24 px-6">
-        
+
         <div class="w-full max-w-md flex flex-col items-center">
-            
+
             <!-- Profil Fotoğrafı -->
             <div class="mb-10">
-                <img 
-                    src="assets/profile.webp" 
-                    alt="Onur Durusoy" 
+                <img src="assets/profile.webp" alt="Onur Durusoy"
                     class="w-32 h-32 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 shadow-sm"
-                    onerror="this.onerror=null; this.src='https://placehold.co/200x200/EAEAE6/1A1A1A?text=OD';"
-                >
+                    onerror="this.onerror=null; this.src='https://placehold.co/200x200/EAEAE6/1A1A1A?text=OD';">
             </div>
 
             <!-- İsim ve Unvan -->
@@ -102,11 +115,13 @@
 
             <!-- Ana Bağlantılar -->
             <nav class="w-full max-w-sm flex flex-col mb-16">
-                
-                <a href="https://linkedin.com/in/onurdurusoy" target="_blank" rel="noopener noreferrer" 
-                   class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
-                    <span class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">LinkedIn</span>
-                    <span class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
+
+                <a href="https://linkedin.com/in/onurdurusoy" target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
+                    <span
+                        class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">LinkedIn</span>
+                    <span
+                        class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
                 </a>
                 <!--
 
@@ -117,46 +132,66 @@
                 </a> 
                  -->
 
-                <a href="https://instagram.com/onrdrsy" target="_blank" rel="noopener noreferrer" 
-                   class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
-                    <span class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">Instagram</span>
-                    <span class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
+                <a href="https://instagram.com/onrdrsy" target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
+                    <span
+                        class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">Instagram</span>
+                    <span
+                        class="text-ink-light group-hover:text-ink transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 opacity-0 group-hover:opacity-100">↗</span>
                 </a>
 
                 <a href="#" id="email-link" data-user="onur" data-domain="durusoy.tr"
-                   class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
-                    <span class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">E-posta</span>
-                    <span id="email-text" class="text-xs font-sans tracking-wide text-ink-light group-hover:text-ink transition-colors"></span>
+                    class="group flex items-center justify-between py-4 border-b border-paper-dark hover:border-ink transition-colors duration-300">
+                    <span
+                        class="font-serif text-lg text-ink-light group-hover:text-ink transition-colors">E-posta</span>
+                    <span id="email-text"
+                        class="text-xs font-sans tracking-wide text-ink-light group-hover:text-ink transition-colors"></span>
                 </a>
 
             </nav>
 
             <!-- Müzik Bölümü -->
             <div class="w-full max-w-sm flex flex-col items-center">
-                <div class="w-full border border-paper-dark rounded-2xl p-1 bg-card shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)]">
+                <div
+                    class="w-full border border-paper-dark rounded-2xl p-1 bg-card shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)]">
                     <div class="flex items-center gap-4 p-3">
                         <!-- Dönem Plak İkonu -->
-                        <div class="relative w-11 h-11 flex-shrink-0 rounded-full border border-paper-dark bg-paper overflow-hidden flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                        <div id="music-record"
+                            class="relative w-11 h-11 flex-shrink-0 rounded-full border border-paper-dark bg-paper overflow-hidden flex items-center justify-center animate-[spin_10s_linear_infinite]"
+                            style="animation-play-state: paused;">
                             <div class="absolute inset-1 rounded-full border border-record"></div>
                             <div class="absolute inset-2 rounded-full border border-record"></div>
-                            <div class="w-3 h-3 bg-ink/90 rounded-full flex items-center justify-center shadow-sm">
-                                <div class="w-1 h-1 bg-paper rounded-full"></div>
+                            <div
+                                class="w-3.5 h-3.5 bg-ink/90 rounded-full flex items-center justify-center shadow-sm overflow-hidden z-10">
+                                <img id="music-cover" class="hidden w-full h-full object-cover" src="" alt="Album Art">
+                                <div id="music-record-hole" class="w-1.5 h-1.5 bg-paper rounded-full absolute"></div>
                             </div>
                         </div>
-                        
-                        <div class="flex-1 min-w-0">
-                            <p class="font-serif text-sm text-ink truncate">Dinlediklerim</p>
-                            <p class="text-[11px] text-ink-light font-sans tracking-wide mt-0.5">Güncel rotasyonum</p>
-                        </div>
+
+                        <a id="music-link" href="https://www.last.fm/" target="_blank" rel="noopener noreferrer"
+                            class="flex-1 min-w-0 hover:opacity-85 transition-opacity">
+                            <div class="flex items-center gap-1.5">
+                                <span id="music-status-dot" class="w-1.5 h-1.5 rounded-full bg-ink-light/40"></span>
+                                <span id="music-status-text"
+                                    class="font-serif text-sm text-ink truncate">Dinlediklerim</span>
+                            </div>
+                            <p id="music-track-name"
+                                class="text-[11px] text-ink-light font-sans tracking-wide mt-0.5 truncate">Güncel
+                                rotasyonum</p>
+                        </a>
                     </div>
-                    
+
                     <!-- Platform Linkleri -->
                     <div class="flex border-t border-paper-dark/50">
-                        <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#1DB954] hover:bg-paper-dark/20 transition-all duration-300 rounded-bl-xl">
+                        <a id="spotify-profile-link" href="https://open.spotify.com/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#1DB954] hover:bg-paper-dark/20 transition-all duration-300 rounded-bl-xl">
                             SPOTIFY
                         </a>
                         <div class="w-px bg-paper-dark/50"></div>
-                        <a href="https://www.last.fm/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#D51007] hover:bg-paper-dark/20 transition-all duration-300 rounded-br-xl">
+                        <a id="lastfm-profile-link" href="https://www.last.fm/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex-1 py-2.5 text-center text-[11px] font-medium tracking-wide text-ink-light hover:text-[#D51007] hover:bg-paper-dark/20 transition-all duration-300 rounded-br-xl">
                             LAST.FM
                         </a>
                     </div>
@@ -172,7 +207,7 @@
         <span class="text-[10px] tracking-widest text-ink-light/40 font-serif">durusoy.tr</span>
     </footer>
 
-    <!-- Theme Toggle Logic -->
+    <!-- Theme Toggle Logic & Music Sync -->
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -192,7 +227,7 @@
         updateIcons();
 
         // Butona tıklandığında temayı değiştir ve kaydet
-        themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtn.addEventListener('click', function () {
             document.documentElement.classList.toggle('dark');
             if (document.documentElement.classList.contains('dark')) {
                 localStorage.theme = 'dark';
@@ -202,25 +237,90 @@
             updateIcons();
         });
 
+        // Cihaz/Sistem teması değişikliklerini anlık dinle
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', function (e) {
+            // Eğer kullanıcı manuel olarak bir tema kilitlememişse sistem temasını takip et
+            if (!('theme' in localStorage)) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                updateIcons();
+            }
+        });
+
         // Bot korumalı e-posta adresi oluşturma
         const emailLink = document.getElementById('email-link');
         const emailText = document.getElementById('email-text');
-        
+
         if (emailLink && emailText) {
             const user = emailLink.getAttribute('data-user');
             const domain = emailLink.getAttribute('data-domain');
-            
+
             // E-posta adresini JavaScript ile oluşturup metin olarak yazdırıyoruz
             const emailAddress = user + '@' + domain;
             emailText.textContent = emailAddress;
-            
+
             // Linke tıklama olayı ekleyerek mailto'yu dinamik olarak atıyoruz
-            emailLink.addEventListener('click', function(e) {
+            emailLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 window.location.href = 'mailto:' + emailAddress;
             });
         }
-    </script>
 
+        // Şimdi Çalıyor (Last.fm API proxy'si olan Cloudflare Worker adresi)
+        // Kendi Worker adresinizi yayına aldıktan sonra buraya yazın (örn: 'https://spotify-proxy.onur.workers.dev')
+        const WORKER_URL = 'spotify-prox.onrdrsy1907.workers.dev';
+
+        async function fetchNowPlaying() {
+            if (!WORKER_URL) return;
+
+            const record = document.getElementById('music-record');
+            const cover = document.getElementById('music-cover');
+            const statusDot = document.getElementById('music-status-dot');
+            const statusText = document.getElementById('music-status-text');
+            const trackName = document.getElementById('music-track-name');
+            const musicLink = document.getElementById('music-link');
+
+            try {
+                const response = await fetch(WORKER_URL);
+                if (!response.ok) throw new Error('API hatası');
+                const data = await response.json();
+
+                if (data.name && data.artist) {
+                    trackName.textContent = `${data.name} — ${data.artist}`;
+                    musicLink.href = data.url || 'https://www.last.fm/';
+
+                    if (data.isPlaying) {
+                        statusText.textContent = 'Şu an çalıyor';
+                        statusDot.className = 'w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse';
+                        record.style.animationPlayState = 'running';
+                    } else {
+                        statusText.textContent = 'Son dinlenen';
+                        statusDot.className = 'w-1.5 h-1.5 rounded-full bg-ink-light/40';
+                        record.style.animationPlayState = 'paused';
+                    }
+
+                    if (data.image) {
+                        cover.src = data.image;
+                        cover.classList.remove('hidden');
+                    } else {
+                        cover.classList.add('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Müzik bilgisi güncellenemedi:', error);
+            }
+        }
+
+        // İlk yüklemede çalıştır ve 30 saniyede bir güncelle
+        if (WORKER_URL) {
+            fetchNowPlaying();
+            setInterval(fetchNowPlaying, 30000);
+        }
+    </script>
 </body>
+
 </html>
